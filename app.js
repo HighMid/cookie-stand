@@ -14,12 +14,15 @@ function headerRow(){
         // Adding HeaderRow
 
         const tableElem = document.createElement("table");
+        tableElem.classList.add("table");
         cityContainerElement.appendChild(tableElem);
     
         const headerRow = document.createElement("tr");
+        headerRow.classList.add("header-row");
         tableElem.appendChild(headerRow);
     
         const cityHeaderCell = document.createElement("th");
+        cityHeaderCell.classList.add("location-header");
         headerRow.appendChild(cityHeaderCell);
         cityHeaderCell.textContent = "Location";
     
@@ -31,7 +34,7 @@ function headerRow(){
 
         const totalHeaderCell = document.createElement("th");
         headerRow.appendChild(totalHeaderCell);
-        totalHeaderCell.textContent = "Total Cookies";
+        totalHeaderCell.textContent = "Location Totals";
 
     return tableElem;
 }
@@ -39,10 +42,11 @@ function headerRow(){
 function footerRow(tableElem){
 
     const footerRow = document.createElement("tr");
+    footerRow.classList.add("footer-row");
     tableElem.appendChild(footerRow);
 
     const footerTotalRow = document.createElement("td");
-    footerTotalRow.textContent = "Totals";
+    footerTotalRow.textContent = "Hourly Totals for All Locations";
     footerRow.appendChild(footerTotalRow);
 
     let totalCookies = 0;
@@ -100,25 +104,22 @@ CityBuilder.prototype.displaySalesData = function(tableElem){
     this.generatehourlySales();
     this.total += this.totalSales();
 
-    // const cityContainerElement = document.getElementById("city-container");
-
-    // Adding the table
-
-    // Adding HeaderRow
-
     const dataRow = document.createElement("tr");
     tableElem.appendChild(dataRow);
 
     const cityDataCell = document.createElement("td");
     dataRow.appendChild(cityDataCell);
+    cityDataCell.classList.add("City-Names");
     cityDataCell.textContent = this.name;
 
     for(let i = 0; i < this.hourlySales.length; i++){
         const hourDataCell = document.createElement("td");
         dataRow.appendChild(hourDataCell);
+        hourDataCell.classList.add("why");
         hourDataCell.textContent = this.hourlySales[i];
     }
 
+    
     const cityTotalCell = document.createElement("td");
     dataRow.appendChild(cityTotalCell);
     cityTotalCell.textContent = this.total;
