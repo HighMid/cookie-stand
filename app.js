@@ -1,192 +1,10 @@
 "use strict";
 
-
-const Seattle = {
-    name: 'Seattle',
-    minCust: 23,
-    maxCust: 65,
-    avg: 6.3,
-    hours: ['6am', '7am', '8am', '9am', '10am', '11am', '12pm', '1pm', '2pm', '3pm', '4pm', '5am', '6pm', '7pm'],
-    hourlySales: [],
-    customer: 0,
-    
-
-    generateCustomer: function (){    
-        this.customer = RNG(this.minCust, this.maxCust);
-        return this.customer;
-    },
-
-    generatehourlySales: function(){
-        for(let i = 0; i < 14; i++){
-            let hourlyCust = this.generateCustomer();
-            let hourlyCookies = Math.ceil(hourlyCust * this.avg);
-            this.hourlySales.push(hourlyCookies);
-
-        }
-    },
-
-    totalSales: function()
-    {
-        let total = 0;
-        for(let i = 0; i < this.hourlySales.length; i++){
-            total += this.hourlySales[i];
-        }
-        return total;
-    },
-
-
-};
-
-const Tokyo = {
-    name: 'Tokyo',
-    minCust: 3,
-    maxCust: 24,
-    avg: 1.2,
-    hours: ['6am', '7am', '8am', '9am', '10am', '11am', '12pm', '1pm', '2pm', '3pm', '4pm', '5am', '6pm', '7pm'],
-    hourlySales: [],
-    customer: 0,
-    
-
-    generateCustomer: function (){    
-        this.customer = RNG(this.minCust, this.maxCust);
-        return this.customer;
-    },
-
-    generatehourlySales: function(){
-        for(let i = 0; i < 14; i++){
-            let hourlyCust = this.generateCustomer();
-            let hourlyCookies = Math.ceil(hourlyCust * this.avg);
-            this.hourlySales.push(hourlyCookies);
-
-        }
-    },
-
-    totalSales: function()
-    {
-        let total = 0;
-        for(let i = 0; i < this.hourlySales.length; i++){
-            total += this.hourlySales[i];
-        }
-        return total;
-    },
-
-
-};
-
-const Dubai = {
-    name: 'Dubai',
-    minCust: 11,
-    maxCust: 38,
-    avg: 3.7,
-    hours: ['6am', '7am', '8am', '9am', '10am', '11am', '12pm', '1pm', '2pm', '3pm', '4pm', '5am', '6pm', '7pm'],
-    hourlySales: [],
-    customer: 0,
-    
-
-    generateCustomer: function (){    
-        this.customer = RNG(this.minCust, this.maxCust);
-        return this.customer;
-    },
-
-    generatehourlySales: function(){
-        for(let i = 0; i < 14; i++){
-            let hourlyCust = this.generateCustomer();
-            let hourlyCookies = Math.ceil(hourlyCust * this.avg);
-            this.hourlySales.push(hourlyCookies);
-
-        }
-    },
-
-    totalSales: function()
-    {
-        let total = 0;
-        for(let i = 0; i < this.hourlySales.length; i++){
-            total += this.hourlySales[i];
-        }
-        return total;
-    },
-
-
-};
-
-const Paris = {
-    name: 'Paris',
-    minCust: 20,
-    maxCust: 38,
-    avg: 2.3,
-    hours: ['6am', '7am', '8am', '9am', '10am', '11am', '12pm', '1pm', '2pm', '3pm', '4pm', '5am', '6pm', '7pm'],
-    hourlySales: [],
-    customer: 0,
-    
-
-    generateCustomer: function (){    
-        this.customer = RNG(this.minCust, this.maxCust);
-        return this.customer;
-    },
-
-    generatehourlySales: function(){
-        for(let i = 0; i < 14; i++){
-            let hourlyCust = this.generateCustomer();
-            let hourlyCookies = Math.ceil(hourlyCust * this.avg);
-            this.hourlySales.push(hourlyCookies);
-
-        }
-    },
-
-    totalSales: function()
-    {
-        let total = 0;
-        for(let i = 0; i < this.hourlySales.length; i++){
-            total += this.hourlySales[i];
-        }
-        return total;
-    },
-
-
-};
-
-const Lima = {
-    name: 'Lima',
-    minCust: 2,
-    maxCust: 16,
-    avg: 4.6,
-    hours: ['6am', '7am', '8am', '9am', '10am', '11am', '12pm', '1pm', '2pm', '3pm', '4pm', '5am', '6pm', '7pm'],
-    hourlySales: [],
-    customer: 0,
-    
-
-    generateCustomer: function (){    
-        this.customer = RNG(this.minCust, this.maxCust);
-        return this.customer;
-    },
-
-    generatehourlySales: function(){
-        for(let i = 0; i < 14; i++){
-            let hourlyCust = this.generateCustomer();
-            let hourlyCookies = Math.ceil(hourlyCust * this.avg);
-            this.hourlySales.push(hourlyCookies);
-
-        }
-    },
-
-    totalSales: function()
-    {
-        let total = 0;
-        for(let i = 0; i < this.hourlySales.length; i++){
-            total += this.hourlySales[i];
-        }
-        return total;
-    },
-
-
-};
+const hours = ['6am', '7am', '8am', '9am', '10am', '11am', '12pm', '1pm', '2pm', '3pm', '4pm', '5am', '6pm', '7pm'];
 
 function RNG(min, max){
     return Math.floor(Math.random() * (max - min + 1) + min);
 }
-
-let hours = Seattle.hours;
-
 
 function displaySalesData(city){
     city.generatehourlySales();
@@ -216,6 +34,47 @@ function displaySalesData(city){
     ul.appendChild(totalSalesLi);
     article.appendChild(ul);
 }
+
+function CityBuilder(name, min, max, avg){
+
+    this.name = name;
+    this.minCust = min;
+    this.maxCust = max;
+    this.avg = avg;
+    this.hours = hours;
+    this.hourlySales = [];
+    this.customer = 0;
+
+    
+}
+
+CityBuilder.prototype.generateCustomer = function(){
+    this.customer = RNG(this.minCust, this.maxCust);
+    return this.customer;
+}
+
+CityBuilder.prototype.generatehourlySales = function(){
+    for(let i = 0; i < 14; i++){
+        let hourlyCust = this.generateCustomer();
+        let hourlyCookies = Math.ceil(hourlyCust * this.avg);
+        this.hourlySales.push(hourlyCookies);
+
+    }
+}
+
+CityBuilder.prototype.totalSales = function(){
+    let total = 0;
+    for(let i = 0; i < this.hourlySales.length; i++){
+        total += this.hourlySales[i];
+    }
+    return total;
+}
+
+const Seattle = new CityBuilder('Seattle', 23, 65, 6.3);
+const Tokyo = new CityBuilder('Tokyo', 3, 24, 1.2);
+const Dubai = new CityBuilder('Dubai', 11, 38, 3.7);
+const Paris = new CityBuilder('Paris', 20, 38, 2.3);
+const Lima = new CityBuilder('Lima', 2, 16, 4.6);
 
 displaySalesData(Seattle);
 displaySalesData(Tokyo);
