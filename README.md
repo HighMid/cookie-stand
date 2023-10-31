@@ -1,4 +1,4 @@
 # cookie-stand webpage
-of pain
+of pain . . .
 
 ![Lab06 Lighthouse](Lab06_LightHouse.JPG)
