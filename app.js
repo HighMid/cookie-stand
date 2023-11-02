@@ -2,6 +2,7 @@
 
 const hours = ['6am', '7am', '8am', '9am', '10am', '11am', '12pm', '1pm', '2pm', '3pm', '4pm', '5am', '6pm', '7pm'];
 
+
 const cityForm = document.getElementById('addCityForm');
 
 // const cityInfo = [
@@ -133,6 +134,7 @@ CityBuilder.prototype.totalSales = function(){
 
 CityBuilder.prototype.displaySalesData = function(tableElem){
 
+    locations.push(this.name);
     this.generatehourlySales();
     this.total += this.totalSales();
 
