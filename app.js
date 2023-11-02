@@ -134,7 +134,6 @@ CityBuilder.prototype.totalSales = function(){
 
 CityBuilder.prototype.displaySalesData = function(tableElem){
 
-    locations.push(this.name);
     this.generatehourlySales();
     this.total += this.totalSales();
 
