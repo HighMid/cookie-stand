@@ -12,30 +12,30 @@ function displayCityInfo() {
     const citiesInfoSection = document.querySelector(".cities-info");
   
     cityInfo.forEach(city => {
-      // Create the article element for each city
+
       const article = document.createElement('article');
       
-      // Add the city name
+
       const h3 = document.createElement('h3');
       h3.textContent = city.name;
       article.appendChild(h3);
       
-      // Add the location paragraph
+
       const locationP = document.createElement('p');
       locationP.textContent = `Location: ${city.location}`;
       article.appendChild(locationP);
       
-      // Add the contact hours paragraph
+
       const hoursP = document.createElement('p');
       hoursP.textContent = `Contact Hours: ${city.hours}`;
       article.appendChild(hoursP);
       
-      // Add the phone number paragraph
+
       const phoneP = document.createElement('p');
       phoneP.textContent = `Phone: ${city.phone}`;
       article.appendChild(phoneP);
       
-      // Append the article to the cities-info section
+
       citiesInfoSection.appendChild(article);
     });
   }
