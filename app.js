@@ -2,6 +2,8 @@
 
 const hours = ['6am', '7am', '8am', '9am', '10am', '11am', '12pm', '1pm', '2pm', '3pm', '4pm', '5am', '6pm', '7pm'];
 
+const cityForm = document.getElementById('addCityForm');
+
 // const cityInfo = [
 //     { name: "Seattle", location: "420 Floppin Fish Lane" , hours: "6am - 7pm" , phone: "(206) 420-1337"},
 //     { name: "Tokyo", location: "1 Chome-23-10 Jinnan" , hours: "6am - 7pm" , phone: "(64) 3-6416-9222"},
@@ -48,6 +50,11 @@ function headerRow(){
 
 function footerRow(tableElem){
 
+    const existingFooterRow = document.querySelector('.footer-row');
+    if (existingFooterRow) {
+        existingFooterRow.remove();
+    }
+
     const footerRow = document.createElement("tr");
     footerRow.classList.add("footer-row");
     tableElem.appendChild(footerRow);
@@ -69,6 +76,8 @@ function footerRow(tableElem){
     footerCookieTotal.textContent = totalCookies;
 }
 
+
+
 function CityBuilder(name, min, max, avg){
 
     this.name = name;
@@ -81,6 +90,22 @@ function CityBuilder(name, min, max, avg){
     this.total = 0;
     
 }
+
+cityForm.addEventListener('submit',
+    function (event){
+        event.preventDefault();
+        const location = event.target.location.value;
+        const minCustomer = event.target.minCustomers.value;
+        const maxCustomer = event.target.maxCustomers.value;
+        const averageCookie = event.target.avgCookies.value;
+
+        const newLocation = new CityBuilder(location, minCustomer, maxCustomer, averageCookie);
+
+        cityForm.reset();
+        newLocation.displaySalesData(tableElem);
+        footerRow(tableElem);
+    }
+);
 
 CityBuilder.hourTotals = new Array(14).fill(0);
 
@@ -130,6 +155,7 @@ CityBuilder.prototype.displaySalesData = function(tableElem){
     const cityTotalCell = document.createElement("td");
     dataRow.appendChild(cityTotalCell);
     cityTotalCell.textContent = this.total;
+    footerRow(tableElem);
 }
 
 const Seattle = new CityBuilder('Seattle', 23, 65, 6.3);

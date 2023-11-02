@@ -14,17 +14,36 @@
     <header>
         <h1>Welcome to Pat's Salmon Cookies!</h1>
     </header>
-    <main>
+    <main class="main2">
         <section class="link-container">
             <a href="index.html" alt="Homepage Link">Home</a>
             <a href="sales.html" alt="Sale's Data">Sale's Data</a>
+        </section>
+        <section class="input-container">
+            <form id="addCityForm">
+                <fieldset class="inputText-container">
+                    <label>Location Name</label>
+                    <input name="location" type="text">
+                    <label>Minimum Customers Per Hour</label>
+                    <input name="minCustomers" type="number">
+                    <label>Maximum Customers Per Hour</label>
+                    <input name="maxCustomers" type="number">
+                    <label>Average Cookies Per Sale</label>
+                    <input name="avgCookies" type="number">
+                    <button type="submit">Click here to add !</button>
+                </fieldset>
+
+            </form>
         </section>
         <article id="city-container">
 
         </article>
     </main> 
-
-    
+    <footer>
+        <section class="copyright">
+            <p>© 2023 Pat's Salmon Cookies</p>
+        </section>
+    </footer>
 <script src="app.js"></script>
 </body>
 </html>
