@@ -23,7 +23,7 @@ main {
     box-sizing: border-box;
     width: 100%;
     height: auto;
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: 'Trebuchet MS', serif;
     background-color: salmon; 
     padding: 15px 0 15px 35px;
     text-align: left;    
@@ -43,7 +43,9 @@ main {
     width: 100%;            
     border-bottom: 1px solid black;
 }
-
+body{
+    background-color: beige;
+}
 .image-container img {
     width: 75%;      
     height: auto;     
@@ -65,7 +67,7 @@ main {
 }
 
 .cities-info p{
-    font-family: Arial, sans-serif;
+    font-family: 'Trebuchet MS', serif;
     text-indent: 4em;
 }
 
@@ -80,6 +82,7 @@ main {
 .copyright {
     font-weight: bold;
     background-color: rgb(167, 167, 167);
+    font-family: 'Trebuchet MS', serif;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -109,7 +112,9 @@ table tr td:last-child {
     text-align: center;
     
 }
-
+td{
+    font-family: Arial, sans-serif;
+}
 th, td {
     padding: 10px;
 }
